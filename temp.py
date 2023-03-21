@@ -1,22 +1,31 @@
-from math import sqrt
-
-message = ('Добро пожаловать в самую лучшую программу для '
-           'вычисления квадратного корня из заданного числа')
-
-
-def calculatesquareroot(number):
-    """Вычисляет квадратный корень."""
-    return sqrt(number)
-
-
-def calc(number):
-    """Проверка числа."""
-    if number <= 0:
-        return
-    i = calculatesquareroot(number)
-    print(f'Мы вычислили квадратный корень из введённого вами числа. '
-          f'Это будет: {i}')
-
-
-print(message)
-calc(25.5)
+def start_training(character):
+    """
+    Принимает на вход имя и класс персонажа.
+    Возвращает сообщения о результатах цикла тренировки персонажа.
+    """
+    if char_class == 'warrior':
+        print(f'{char_name}, ты Воитель — великий мастер ближнего боя.')
+    if char_class == 'mage':
+        print(f'{char_name}, ты Маг — превосходный укротитель стихий.')
+    if char_class == 'healer':
+        print(f'{char_name}, ты Лекарь — чародей, способный исцелять раны.')
+    print('Потренируйся управлять своими навыками.')
+    print('Введи одну из команд: attack — чтобы атаковать противника, '
+          'defence — чтобы блокировать атаку противника или '
+          'special — чтобы использовать свою суперсилу.')
+    print('Если не хочешь тренироваться, введи команду skip.')
+    cmd = None
+    while cmd != 'skip':
+        cmd = input('Введи команду: ')
+        # Замените блок условных операторов на словарь
+        # и вынесите его из цикла. Здесь останется одно условие
+        # принадлежности введённой команды словарю.
+        # В функции print() будет вызываться метод класса,
+        # который соответствует введённой команде.
+        if cmd == 'attack':
+            print(attack(char_name, char_class))
+        if cmd == 'defence':
+            print(defence(char_name, char_class))
+        if cmd == 'special':
+            print(special(char_name, char_class))
+    return 'Тренировка окончена.'
